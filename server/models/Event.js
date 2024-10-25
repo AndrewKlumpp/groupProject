@@ -30,7 +30,7 @@ const EventSchema = new Schema({
     eventDescription:{
         type: String,
         required:[true, "Event description is required"],
-        minLength:[10, "Event description must be 10 or more characters"],
+        minLength:[5, "Event description must be 5 or more characters"],
         maxLength:[200, "Event description must be less than 200 characters"]
     }
 }, { timestamps: true })
