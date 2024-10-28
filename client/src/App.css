@@ -17,3 +17,8 @@ h1 {
   width: 80%;
   margin: auto;
 }
+
+.card {
+  background-color: #b4967a;
+  padding: 10px;
+}
