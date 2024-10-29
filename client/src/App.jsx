@@ -9,6 +9,7 @@ import LoginContent from './components/LoginContent'
 import Header from './components/Header'
 import { useUser } from './context/UserContext';
 import AddEvent from './views/AddEvent'
+import Edit from './views/Edit'
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path='/events' element={<Events user={user}/>}/>
           <Route path='/create/event' element={<AddEvent/>}/>
+          <Route path='/update/event/:id' element={<Edit/>}/>
           <Route path='/about' element={<About/>}/>
           <Route path='/login' element={<LoginContent setUser={setUser}/>}/>
         </Routes>
