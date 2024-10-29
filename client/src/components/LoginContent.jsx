@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 import Header from "../components/Header";
-
+import { useUser } from '../context/UserContext';
 
 const LoginContent = (props) => {
     const navigate = useNavigate();
@@ -12,7 +12,7 @@ const LoginContent = (props) => {
     const [confirmPassword, setConfirmPassword] = useState('');
     const [isLogin, setIsLogin] = useState(true);
     const [errors, setErrors] = useState({});
-    const { setUser } = props;
+    const { setUser } = useUser();
 
     const handleSwitchForm = () => {
         setIsLogin(!isLogin);

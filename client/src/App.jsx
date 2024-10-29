@@ -6,20 +6,22 @@ import About from './views/About'
 import Events from './views/Events'
 //import Login from './views/Login'
 import LoginContent from './components/LoginContent'
+import Header from './components/Header'
+import { useUser } from './context/UserContext';
 
 function App() {
 
-  const [user, setUser] = useState(null);
+  const { user, setUser } = useUser();
 
   return (
     <>
-      <Routes>
-        <Route index element={<Home />} />
-        <Route path='/events' element={<Events user={user}/>}/>
-        <Route path='/about' element={<About/>}/>
-        <Route path='/login' element={<LoginContent setUser={setUser}/>}/>
-      </Routes>
-    </>
+        <Routes>
+          <Route index element={<Home />} />
+          <Route path='/events' element={<Events user={user}/>}/>
+          <Route path='/about' element={<About/>}/>
+          <Route path='/login' element={<LoginContent setUser={setUser}/>}/>
+        </Routes>
+      </>
   )
 }
 

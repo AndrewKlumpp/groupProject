@@ -1,8 +1,24 @@
-import { Link } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
 import nookLogo from '/nooklogo.jpeg';
+import axios from "axios";
+import { useUser } from '../context/UserContext';
 
 const Header = (props) => {
   const {title} = props
+  const { setUser } = useUser();
+  const navigate = useNavigate();
+
+  const Logout = () =>{
+    axios.post('http://localhost:8000/api/logout', {}, {withCredentials:true})
+    .then(() =>{
+        setUser(null)
+        navigate('/')
+    })
+    .catch((err =>{
+        console.log(err);
+    }))
+}
+
   return (
     <div className='container'>
       <div className='d-flex col'>
@@ -15,6 +31,7 @@ const Header = (props) => {
             <Link className='btn btn-primary m-2 col' to={'/events'}>Events</Link>
             <Link className='btn btn-primary m-2 col' to={'/about'}>About</Link>
             <Link className='btn btn-primary m-2 col' to={'/login'}>Login</Link>
+            <Link className='btn btn-primary m-2 col' to={"/"} onClick={Logout}>Logout</Link>
           </div>
           <br />
           <div className="title row">
