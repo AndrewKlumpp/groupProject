@@ -55,10 +55,11 @@ const LoginContent = (props) => {
     }
 
     return (
+      <>
+        <div>
+          <Header title={'Login/Reg'} />
+        </div>
         <div className="container d-flex justify-content-center align-items-center">
-            <div>
-                <Header title={'Login/Reg'} />
-            </div>
             <div className="card">
                 {errors.general && <p className="text-danger text-center">{errors.general}</p>}
                 {isLogin ? (
@@ -108,6 +109,7 @@ const LoginContent = (props) => {
                 )}
             </div>
         </div>
+      </>
     );
 }
 
