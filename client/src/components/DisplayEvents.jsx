@@ -34,7 +34,7 @@ const DisplayEvents = (props) => {
 
               // Format the date to "day/month/year"
               const formattedDate = date.toLocaleDateString('en-US', {
-                month: '2-digit',
+                month: 'long',
                 day: '2-digit',
                 year: 'numeric'
               });
