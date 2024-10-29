@@ -28,15 +28,31 @@ const DisplayEvents = (props) => {
         </thead>
         <tbody>
           {
-            events.map((event) => (
-              <tr key={event._id}>
-                <td>{event.eventName}</td>
-                <td>{event.eventLocation}</td>
-                <td>{event.eventDate}</td>
-                <td>{event.eventDescription}</td>
-                <td><Link className='btn btn-success' to={`/update/event/${event._id}`}>Edit</Link></td>
-              </tr>
-            ))
+            events.map((event) => {
+              // Create a Date object from the event date string
+              const date = new Date(event.eventDate);
+
+              // Format the date to "day/month/year"
+              const formattedDate = date.toLocaleDateString('en-US', {
+                month: '2-digit',
+                day: '2-digit',
+                year: 'numeric'
+              });
+
+              return (
+                <tr key={event._id}>
+                  <td>{event.eventName}</td>
+                  <td>{event.eventLocation}</td>
+                  <td>{formattedDate}</td>
+                  <td>{event.eventDescription}</td>
+                  <td>
+                    <Link className="btn btn-success" to={`/update/event/${event._id}`}>
+                      Edit
+                    </Link>
+                  </td>
+                </tr>
+              );
+            })
           }
         </tbody>
       </table>

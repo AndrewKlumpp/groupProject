@@ -22,3 +22,8 @@ h1 {
   background-color: #b4967a;
   padding: 10px;
 }
+
+.single-event {
+  color: rgb(0, 75, 75);
+  border: 2px solid whitesmoke;
+}
