@@ -35,7 +35,7 @@ export const UserController = {
             }
             // Log user in (generate jwt)
             const userToken = jwt.sign(
-                {userId:potentialUser._id, username:potentialUser.username, role:potentialUser.role},
+                {userId:potentialUser._id, username:potentialUser.username},
                 process.env.SECRET_KEY
             )
             res.cookie('userToken', userToken, {httpOnly:true})
