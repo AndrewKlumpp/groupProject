@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import Header from '../components/Header';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
+import dayjs from 'dayjs';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
 const Edit = (props) => {
   const { id } = useParams()
@@ -53,6 +56,10 @@ const Edit = (props) => {
     })
   }
 
+  const handleDateChange = (date) => {
+    setEventDate(date);
+  };
+
   return (
     <div>
       <Header title={'Update Event'} />
@@ -87,11 +94,12 @@ const Edit = (props) => {
         </div>
         <div>
           <label className='form-label'>Event Date</label>
-          <input
+          <DatePicker
             className='form-control'
-            type="date"
-            onChange={(e) => setEventDate(e.target.value)}
-            value={eventDate}
+            id='date-picker'
+            selected={eventDate}
+            onChange={handleDateChange}
+            dateFormat="yyyy/MM/dd"
           />
           {
             errors.eventDate ?

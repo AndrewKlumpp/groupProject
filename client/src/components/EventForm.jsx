@@ -1,12 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import dayjs from 'dayjs';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
 const EventForm = (props) => {
   const navigate = useNavigate()
   const [eventName, setEventName] = useState('')
   const [eventLocation, setEventLocation] = useState('')
-  const [eventDate, setEventDate] = useState('')
+  const [eventDate, setEventDate] = useState(new Date().toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit'
+  }))
   const [eventDescription, setEventDescription] = useState('')
   const [errors, setErrors] = useState({})
 
@@ -26,6 +33,10 @@ const EventForm = (props) => {
         setErrors(err.response.data.errors)
       })
   }
+
+  const handleDateChange = (date) => {
+    setEventDate(date);
+  };
 
   return (
     <div>
@@ -60,11 +71,12 @@ const EventForm = (props) => {
         </div>
         <div>
           <label className='form-label'>Event Date</label>
-          <input
+          <DatePicker
             className='form-control'
-            type="date"
-            onChange={(e) => setEventDate(e.target.value)}
-            value={eventDate}
+            id='date-picker'
+            selected={eventDate}
+            onChange={handleDateChange}
+            dateFormat="yyyy/MM/dd"
           />
           {
             errors.eventDate ?

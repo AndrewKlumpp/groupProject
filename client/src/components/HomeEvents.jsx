@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import dayjs from 'dayjs';
 
 const HomeEvents = (props) => {
   const [events, setEvents] = useState([])
@@ -24,11 +25,7 @@ const HomeEvents = (props) => {
             const date = new Date(event.eventDate);
 
             // Format the date to "day/month/year"
-            const formattedDate = date.toLocaleDateString('en-US', {
-              day: '2-digit',
-              month: 'long',
-              year: 'numeric',
-            });
+            const formattedDate = dayjs(date).format('MMMM D, YYYY');
 
             return (
               <div key={event._id} className="single-event card text-center">
