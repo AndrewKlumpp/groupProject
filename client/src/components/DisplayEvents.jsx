@@ -39,7 +39,15 @@ const DisplayEvents = (props) => {
               return (
                 <tr key={event._id}>
                   <td>{event.eventName}</td>
-                  <td>{event.eventLocation}</td>
+                  <td>
+                    <a
+                      href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(event.eventLocation)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {event.eventLocation}
+                    </a>
+                  </td>
                   <td>{formattedDate}</td>
                   <td>{event.eventDescription}</td>
                   <td>

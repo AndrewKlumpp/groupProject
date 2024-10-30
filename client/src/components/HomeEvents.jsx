@@ -30,7 +30,15 @@ const HomeEvents = (props) => {
             return (
               <div key={event._id} className="single-event card text-center">
                 <h3>{event.eventName}</h3>
-                <p>{event.eventLocation}</p>
+                <p>
+                  <a
+                    href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(event.eventLocation)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {event.eventLocation}
+                  </a>
+                </p>
                 <p>{formattedDate}</p>
                 <p>{event.eventDescription}</p>
               </div>
