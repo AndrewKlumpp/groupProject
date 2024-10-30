@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import dayjs from 'dayjs';
 
 const DisplayEvents = (props) => {
   const [events, setEvents] = useState([])
@@ -28,15 +29,27 @@ const DisplayEvents = (props) => {
         </thead>
         <tbody>
           {
-            events.map((event) => (
-              <tr key={event._id}>
-                <td>{event.eventName}</td>
-                <td>{event.eventLocation}</td>
-                <td>{event.eventDate}</td>
-                <td>{event.eventDescription}</td>
-                <td><Link className='btn btn-success' to={`/update/event/${event._id}`}>Edit</Link></td>
-              </tr>
-            ))
+            events.map((event) => {
+              // Create a Date object from the event date string
+              const date = new Date(event.eventDate);
+
+              // Format the date to "day/month/year"
+              const formattedDate = dayjs(date).format('MMMM D, YYYY');
+
+              return (
+                <tr key={event._id}>
+                  <td>{event.eventName}</td>
+                  <td>{event.eventLocation}</td>
+                  <td>{formattedDate}</td>
+                  <td>{event.eventDescription}</td>
+                  <td>
+                    <Link className="btn btn-success" to={`/update/event/${event._id}`}>
+                      Edit
+                    </Link>
+                  </td>
+                </tr>
+              );
+            })
           }
         </tbody>
       </table>
