@@ -4,9 +4,11 @@ import HomeContent from '../components/HomeContent';
 import HomeEvents from '../components/HomeEvents';
 
 const Home = (props) => {
+  const {user} = props
+  console.log({user})
   return (
     <div>
-      <Header title={'Welcome to the Nook!'} />
+      <Header title={user ? `Welcome, ${user.userName}!` : 'Welcome to the Nook!'} />
       <HomeContent />
       <HomeEvents />
     </div>

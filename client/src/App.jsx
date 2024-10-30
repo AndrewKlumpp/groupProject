@@ -18,7 +18,7 @@ function App() {
   return (
     <>
         <Routes>
-          <Route index element={<Home />} />
+          <Route index element={<Home user={user}/>} />
           <Route path='/events' element={<Events user={user}/>}/>
           <Route path='/create/event' element={<AddEvent/>}/>
           <Route path='/update/event/:id' element={<Edit/>}/>
