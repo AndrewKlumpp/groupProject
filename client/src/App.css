@@ -26,4 +26,12 @@ h1 {
 .single-event {
   color: rgb(0, 75, 75);
   border: 2px solid whitesmoke;
+  flex: 1 1 calc(33.333% - 16px); /* Adjust for gap width */
+  box-sizing: border-box;
+}
+
+.event-cluster {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px; /* Adjust gap as needed */
 }

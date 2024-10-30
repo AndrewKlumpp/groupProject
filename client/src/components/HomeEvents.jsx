@@ -18,7 +18,7 @@ const HomeEvents = (props) => {
 
   return (
     <div className='container'>
-      <div className='event-cluster d-flex justify-content-center gap-4'>
+      <div className='event-cluster d-flex justify-content-center'>
         {
           events.map((event) => {
             // Create a Date object from the event date string
