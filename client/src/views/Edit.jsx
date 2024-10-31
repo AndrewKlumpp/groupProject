@@ -109,11 +109,13 @@ const Edit = (props) => {
         </div>
         <div>
           <label className='form-label'>Event Description</label>
-          <input
+            <textarea
             className='form-control'
             type="text"
             onChange={(e) => setEventDescription(e.target.value)}
             value={eventDescription}
+            rows={4}
+            cols={40}
           />
           {
             errors.eventDescription ?
