@@ -27,6 +27,9 @@ const HomeEvents = (props) => {
             // Format the date to "day/month/year"
             const formattedDate = dayjs(date).format('MMMM D, YYYY');
 
+            //Format time to 12 hour time
+            const formattedTime = dayjs(`2000-01-01T${event.eventTime}`).format('hh:mm A');
+
             return (
               <div key={event._id} className="single-event card text-center">
                 <h3>{event.eventName}</h3>
@@ -39,7 +42,7 @@ const HomeEvents = (props) => {
                     {event.eventLocation}
                   </a>
                 </p>
-                <p>{formattedDate}</p>
+                <p>{formattedTime} on {formattedDate}</p>
                 <p>{event.eventDescription}</p>
               </div>
             );

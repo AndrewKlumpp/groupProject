@@ -11,6 +11,7 @@ const Edit = (props) => {
   const navigate = useNavigate()
   const [eventName, setEventName] = useState('')
   const [eventLocation, setEventLocation] = useState('')
+  const [eventTime, setEventTime] = useState('')
   const [eventDate, setEventDate] = useState('')
   const [eventDescription, setEventDescription] = useState('')
   const [errors, setErrors] = useState({})
@@ -21,6 +22,7 @@ const Edit = (props) => {
         console.log(res)
         setEventName(res.data.eventName)
         setEventLocation(res.data.eventLocation)
+        setEventTime(res.data.eventTime)
         setEventDate(res.data.eventDate)
         setEventDescription(res.data.eventDescription)
       })
@@ -34,6 +36,7 @@ const Edit = (props) => {
     const updatedEvent = {
       eventName,
       eventLocation,
+      eventTime,
       eventDate,
       eventDescription
     }
@@ -89,6 +92,20 @@ const Edit = (props) => {
           {
             errors.eventLocation ?
             <p className='text-danger'>{errors.eventLocation.message}</p> :
+            null
+          }
+        </div>
+        <div>
+          <label className='form-label'>Event Time</label>
+          <input
+            className='form-control'
+            type="text"
+            onChange={(e) => setEventTime(e.target.value)}
+            value={eventTime}
+          />
+          {
+            errors.eventTime ?
+            <p className='text-danger'>{errors.eventTime.message}</p> :
             null
           }
         </div>

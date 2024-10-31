@@ -9,6 +9,7 @@ const EventForm = (props) => {
   const navigate = useNavigate()
   const [eventName, setEventName] = useState('')
   const [eventLocation, setEventLocation] = useState('')
+  const [eventTime, setEventTime] = useState('')
   const [eventDate, setEventDate] = useState(new Date().toLocaleDateString('en-US', {
     year: 'numeric',
     month: '2-digit',
@@ -22,6 +23,7 @@ const EventForm = (props) => {
     const newEvent = {
       eventName,
       eventLocation,
+      eventTime,
       eventDate,
       eventDescription
     }
@@ -66,6 +68,20 @@ const EventForm = (props) => {
           {
             errors.eventLocation ?
             <p className='text-danger'>{errors.eventLocation.message}</p> :
+            null
+          }
+          </div>
+        <div>
+          <label className='form-label'>Event Time</label>
+          <input
+            className='form-control'
+            type="text"
+            onChange={(e) => setEventTime(e.target.value)}
+            value={eventTime}
+          />
+          {
+            errors.eventTime ?
+            <p className='text-danger'>{errors.eventTime.message}</p> :
             null
           }
         </div>
