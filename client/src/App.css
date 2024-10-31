@@ -35,3 +35,7 @@ h1 {
   flex-wrap: wrap;
   gap: 16px; /* Adjust gap as needed */
 }
+
+#date-picker {
+  margin-top: 12px;
+}
