@@ -50,6 +50,9 @@ const DisplayEvents = (props) => {
             <th onClick={() => sortEvents('eventLocation')} style={{ cursor: 'pointer' }}>
               Location {sortConfig.key === 'eventLocation' ? (sortConfig.direction === 'ascending' ? '▲' : '▼') : ''}
             </th>
+            <th onClick={() => sortEvents('eventTime')} style={{ cursor: 'pointer' }}>
+              Time {sortConfig.key === 'eventTime' ? (sortConfig.direction === 'ascending' ? '▲' : '▼') : ''}
+            </th>
             <th onClick={() => sortEvents('eventDate')} style={{ cursor: 'pointer' }}>
               Date {sortConfig.key === 'eventDate' ? (sortConfig.direction === 'ascending' ? '▲' : '▼') : ''}
             </th>
@@ -61,6 +64,9 @@ const DisplayEvents = (props) => {
           {events.map((event) => {
             const date = new Date(event.eventDate);
             const formattedDate = dayjs(date).format('MMMM D, YYYY');
+
+            //Format time to 12 hour time
+            const formattedTime = dayjs(`2000-01-01T${event.eventTime}`).format('hh:mm A');
 
             return (
               <tr key={event._id}>
@@ -74,6 +80,7 @@ const DisplayEvents = (props) => {
                     {event.eventLocation}
                   </a>
                 </td>
+                <td>{formattedTime}</td>
                 <td>{formattedDate}</td>
                 <td>{event.eventDescription}</td>
                 <td>
