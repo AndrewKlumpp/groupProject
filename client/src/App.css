@@ -1,0 +1,41 @@
+#root {
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+h1 {
+  font-size: 5vw;
+}
+
+.nook-logo {
+  width: 80%;
+  border-radius: 25px;
+  border: 2px solid whitesmoke;
+}
+
+.contain {
+  width: 80%;
+  margin: auto;
+}
+
+.card {
+  background-color: #b4967a;
+  padding: 10px;
+}
+
+.single-event {
+  color: rgb(0, 75, 75);
+  border: 2px solid whitesmoke;
+  flex: 1 1 calc(33.333% - 16px); /* Adjust for gap width */
+  box-sizing: border-box;
+}
+
+.event-cluster {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px; /* Adjust gap as needed */
+}
+
+#date-picker {
+  margin-top: 12px;
+}

@@ -1,0 +1,13 @@
+Group Project Proposal: NeighborHoodNook
+
+Group Members: Andrew Klumpp, Christopher Horne, Ethan Jacob
+
+Stack: MERN
+
+Description: This will be a website that allows users to see and post community events.
+
+GitHub Repo: https://github.com/AndrewKlumpp/groupProject
+
+Feature List(MVP): Home/Index page, Events Page(CRUD), login/reg, disclaimer/about page, header/nav
+
+Bonus Features: fake ads on page, filtering for categories or date or location, commenting on events, likes on events, going/not going button for events, friends page/functionality, footer(fake career/join us link, advertise with us link, other technical stuff)
